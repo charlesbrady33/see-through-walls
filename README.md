@@ -1,6 +1,6 @@
 # See-Through-Walls: Multiplayer AR with MultiSet VPS
 
-Creator demo from [God's Eye View](https://youtube.com/@bilawalsidhu) -- shared augmented reality with persistent "wall vision" for your teammates.
+Creator demo by [Bilawal Sidhu](https://youtube.com/@bilawalsidhu), from [spatialintelligence.ai](https://spatialintelligence.ai) — multiplayer AR "wall hacks" powered by MultiSet VPS and the smartphones you already own, with optional Meta Ray-Ban support.
 
 > **Watch the video:** [See-Through-Walls VPS Demo](https://www.youtube.com/watch?v=CU02AeUCIHc)
 
