@@ -4,6 +4,8 @@ Creator demo by [Bilawal Sidhu](https://youtube.com/@bilawalsidhu), from [spatia
 
 > **Watch the video:** [See-Through-Walls VPS Demo](https://www.youtube.com/watch?v=CU02AeUCIHc)
 
+[![Watch the See-Through-Walls VPS demo on YouTube](assets/see-through-walls-video.jpg)](https://www.youtube.com/watch?v=CU02AeUCIHc)
+
 Built in collaboration with [MultiSet AI](https://multiset.ai). The MultiSet team maintains the sample code in this repo; MultiSet's canonical SDKs live at [MultiSet-AI on GitHub](https://github.com/MultiSet-AI).
 
 ---
