@@ -33,7 +33,7 @@ The sample supports two different setups. Pick the one that matches the devices 
 | Setup                        | Who plays                                         | Needs                                                                       |
 | ---------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------- |
 | **Flow 1 — Phone ↔ Phone**  | Two (or more) people, each holding a phone        | Two phones running the Unity app. Can be any mix of iOS and Android.        |
-| **Flow 2 — iPhone ↔ Glasses** | One person with an iPhone, one wearing Ray-Bans | iPhone running the Unity app **as host**, plus an iPhone-paired pair of Meta Ray-Ban glasses running the companion `MultisetWearable` Xcode app as the client. |
+| **Flow 2 — iPhone ↔ Glasses** | One person with an iPhone, one wearing Ray-Bans | iPhone running the Unity app **as host**, plus an iPhone-paired pair of Meta Ray-Ban glasses running the companion `MultisetRayBanTracking` Xcode app as the client. |
 
 ---
 
@@ -131,7 +131,7 @@ Use this flow when one person is wearing Meta Ray-Ban glasses and the other is h
 **Roles are fixed:**
 
 - The **Unity app** is always the **host**, and it must run on **iOS**.
-- The **`MultisetWearable` Xcode app** is always the **client**. It pairs with the Meta Ray-Ban glasses, grabs video from them, localizes that video on the iPhone, and forwards the resulting pose to the Unity host.
+- The **`MultisetRayBanTracking` Xcode app** is always the **client**. It pairs with the Meta Ray-Ban glasses, grabs video from them, localizes that video on the iPhone, and forwards the resulting pose to the Unity host.
 
 ### Prerequisites
 
@@ -146,12 +146,14 @@ Use this flow when one person is wearing Meta Ray-Ban glasses and the other is h
 
     Build and install `MultisetRayBanTracking` (iOS 17+, Xcode 15+) onto the paired iPhone.
 
-3. **Match the settings.** In the `MultisetRayBanTracking` app's **Settings screen** (gear icon), enter the **same `mapCode` / `mapsetCode`** and the **same `clientId` / `clientSecret`** you used in the Unity scene. If these don't match exactly, the two sides won't agree on the shared space.
+3. **Add your MultiSet credentials to the iOS app.** In the `MultisetRayBanTracking` Xcode project, set `MULTISET_CLIENT_ID` and `MULTISET_CLIENT_SECRET` as build settings (or as a quick fallback, fill in `defaultClientID` / `defaultClientSecret` in `MultisetRayBanTracking/Services/LocalizationConfig.swift`).
+
+4. **Match the map code.** Open the `MultisetRayBanTracking` app's **Settings screen** (gear icon) and enter the **same `mapCode` / `mapsetCode`** you set on the `SingleFrameLocalizationManager` in the Unity scene. If these don't match exactly, the two sides won't agree on the shared space.
 
 ### Steps
 
 1. **On the Unity device (iPhone running the Unity app):** open the `MultiplayerSample` scene, type a host name, and tap **Start Host**.
-2. **On the wearable device (the iPhone paired with the glasses):** launch `MultisetWearable`, connect the Ray-Bans by tapping **"Connect My Glasses"** (a green indicator confirms they're ready), and from the feature selection screen open **Multiplayer Demo**.
+2. **On the wearable device (the iPhone paired with the glasses):** launch `MultisetRayBanTracking`, connect the Ray-Bans by tapping **"Connect My Glasses"** (a green indicator confirms they're ready), and from the feature selection screen open **Multiplayer Demo**.
 3. Enter a **display name** (or accept the device-name default) and tap **Join Session**. The wearable app automatically searches the Wi-Fi network for the Unity host and connects — you don't have to type in an IP here, because Apple's MultipeerConnectivity handles discovery for you. When iOS prompts for **Local Network** permission, tap Allow.
 4. Tap **Start Streaming**. The glasses start sending their live camera feed to the iPhone, which localizes that feed against the MultiSet map.
 5. Once the phone has localized the stream, the glasses' pose gets forwarded to the Unity host at roughly **20 times a second**. The Unity device then shows the glasses-wearer's avatar at their real-world position, with the same skeleton-through-walls behavior as Flow 1.
@@ -173,5 +175,5 @@ You don't need to know any of this to use the demo, but here's what the wearable
 ## Related files & links
 
 - **Unity sample scene and scripts** — `Assets/MultiSet/Scenes/MultiplayerSample/`
-- **Meta Ray-Ban companion app** — [wearable-vps-samples](https://github.com/MultiSet-AI/wearable-vps-samples.git), iOS target `MultisetWearable`
+- **Meta Ray-Ban companion app** — [see-through-walls](https://github.com/bilawalsidhu/see-through-walls.git), iOS target `MultisetRayBanTracking` (in `Multiset-RayBan-Tracking/`)
 - **MultiSet dashboard** (to get credentials and manage maps) — [multiset.ai](https://multiset.ai/)
