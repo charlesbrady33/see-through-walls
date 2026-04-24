@@ -148,6 +148,8 @@ Use this flow when one person is wearing Meta Ray-Ban glasses and the other is h
 
 3. **Add your MultiSet credentials to the iOS app.** In the `MultisetRayBanTracking` Xcode project, set `MULTISET_CLIENT_ID` and `MULTISET_CLIENT_SECRET` as build settings (or as a quick fallback, fill in `defaultClientID` / `defaultClientSecret` in `MultisetRayBanTracking/Services/LocalizationConfig.swift`).
 
+   > **Note:** `CLIENT_TOKEN` / `META_APP_ID` are not required just to build the project or review the app UI. They are required for actual Meta Ray-Ban pairing and streaming, so set them in Xcode according to your Meta DAT setup before testing with glasses.
+
 4. **Match the map code.** Open the `MultisetRayBanTracking` app's **Settings screen** (gear icon) and enter the **same `mapCode` / `mapsetCode`** you set on the `SingleFrameLocalizationManager` in the Unity scene. If these don't match exactly, the two sides won't agree on the shared space.
 
 ### Steps
