@@ -140,13 +140,13 @@ Use this flow when one person is wearing Meta Ray-Ban glasses and the other is h
 2. **Clone and build the companion iOS app:**
 
     ```bash
-    git clone https://github.com/MultiSet-AI/wearable-vps-samples.git
-    open wearable-vps-samples/iOS/MultisetWearable/MultisetWearable.xcodeproj
+    git clone https://github.com/bilawalsidhu/see-through-walls.git
+    open see-through-walls/Multiset-RayBan-Tracking/MultisetRayBanTracking.xcodeproj
     ```
 
-    Build and install `MultisetWearable` (iOS 17+, Xcode 15+) onto the paired iPhone.
+    Build and install `MultisetRayBanTracking` (iOS 17+, Xcode 15+) onto the paired iPhone.
 
-3. **Match the settings.** In the `MultisetWearable` app's **Settings screen** (gear icon), enter the **same `mapCode` / `mapsetCode`** and the **same `clientId` / `clientSecret`** you used in the Unity scene. If these don't match exactly, the two sides won't agree on the shared space.
+3. **Match the settings.** In the `MultisetRayBanTracking` app's **Settings screen** (gear icon), enter the **same `mapCode` / `mapsetCode`** and the **same `clientId` / `clientSecret`** you used in the Unity scene. If these don't match exactly, the two sides won't agree on the shared space.
 
 ### Steps
 
